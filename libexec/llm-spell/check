@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+def main(argv)
+  require "optparse"
+  require_relative "../../lib/llm/spell"
+  if argv.include?("-v") || argv.include?("--version")
+    puts LLM::Spell::VERSION
+  else
+    options = {}
+    option_parser.parse(argv, into: options)
+    if argv.empty? || options[:provider].nil?
+      warn option_parser.help
+      throw(:exit, 1)
+    else
+      LLM::Spell.new(options).start
+    end
+  end
+end
+
+def option_parser
+  OptionParser.new do |o|
+    o.banner = "Usage: llm-spell [OPTIONS]"
+    o.on("-p PROVIDER", "--provider NAME", "Required. Options: gemini, openai, xai, ollama or llamacpp.", String)
+    o.on("-f FILE", "--file FILE", "Required. The file to check.", String)
+    o.on("-k [KEY]", "--key [KEY]", "Optional. Required by gemini, openai, and anthropic.", String)
+    o.on("-v", "--version", "Optional. Print the version and exit.")
+  end
+end
+
+excode = catch(:exit) do
+  main(ARGV)
+  0
+rescue => ex
+  warn ex.message
+  1
+end
+exit excode
