@@ -21,10 +21,10 @@ often produces fewer false positives and more accurate suggestions.
 require "llm"
 require "llm/spell"
 
-llm = LLM.openai(key: ENV["OPENAI_SECRET"])
-doc = LLM::Spell::Text.new("Ths is a smple txt with sme speling erors.", llm)
-print "mistakes: ", doc.mistakes, "\n"
-print "corrections: ", doc.corrections, "\n"
+llm  = LLM.openai(key: ENV["OPENAI_SECRET"])
+text = LLM::Spell::Text.new("Ths is a smple txt with sme speling erors.", llm)
+print "mistakes: ", text.mistakes, "\n"
+print "corrections: ", text.corrections, "\n"
 ```
 
 ## Demo
