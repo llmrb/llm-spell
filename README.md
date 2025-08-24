@@ -14,6 +14,13 @@ false positives and more accurate suggestions.
 - 🔒 **Privacy** – keep sensitive text local with offline models
 - 🛠️ **Easy to use** – simple command-line interface for quick checks
 
+## Demo
+
+<details>
+  <summary>Start demo</summary>
+  <img src="demo.gif" alt="Demo of llm-spell in action" />
+</details>
+
 ## License
 
 [BSD Zero Clause](https://choosealicense.com/licenses/0bsd/)
