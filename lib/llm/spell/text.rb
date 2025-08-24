@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 class LLM::Spell
-  class Document
+  class Text
     attr_reader :text, :llm, :bot
 
     ##
     # @param [String] text
-    #  The contents of the document
+    #  The contents of the Text
     # @param [LLM::Provider] provider
     #  An instance of LLM::Provider
-    def initialize(text:, llm:)
+    def initialize(text, llm)
       @text = text
       @llm = llm
       @bot = LLM::Bot.new(llm, schema:)

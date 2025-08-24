@@ -14,6 +14,19 @@ often produces fewer false positives and more accurate suggestions.
 - 🔒 **Privacy** – keep sensitive text local with offline models
 - 🛠️ **Easy to use** – simple command-line interface for quick checks
 
+## Library
+
+```ruby
+#!/usr/bin/env ruby
+require "llm"
+require "llm/spell"
+
+llm = LLM.openai(key: ENV["OPENAI_SECRET"])
+doc = LLM::Spell::Text.new("Ths is a smple txt with sme speling erors.", llm)
+print "mistakes: ", doc.mistakes, "\n"
+print "corrections: ", doc.corrections, "\n"
+```
+
 ## Demo
 
 <details>

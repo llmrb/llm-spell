@@ -2,24 +2,23 @@
 
 class LLM::Spell
   class CLI
-    attr_reader :document, :content
+    attr_reader :text, :content
 
-    def initialize(document)
-      @document = document
-      @text = document.text.dup
+    def initialize(text)
+      @text = text
     end
 
     def start
       say "please wait"
-      if document.mistakes.empty?
+      if text.mistakes.empty?
         say "no mistakes found"
       else
-        document.mistakes.each.with_index do |mistake, i|
-          correction = document.corrections[i]
+        text.mistakes.each.with_index do |mistake, i|
+          correction = text.corrections[i]
           print "#{mistake} => #{correction}", "\n"
           print "Replace? (y/N): "
           res = $stdin.gets
-          @text.gsub!(mistake, correction) if res&.strip&.downcase == "y"
+          @text.text.gsub!(mistake, correction) if res&.strip&.downcase == "y"
           print "\n"
         end
       end
