@@ -9,7 +9,7 @@ def main(argv)
   else
     options = {}
     option_parser.parse(argv, into: options)
-    if argv.empty? || options[:provider].nil?
+    if argv.empty? || options[:file].nil? || options[:provider].nil?
       warn option_parser.help
       throw(:exit, 1)
     else
@@ -32,7 +32,8 @@ excode = catch(:exit) do
   main(ARGV)
   0
 rescue => ex
-  warn ex.message
+  warn "#{ex.class}: #{ex.message}"
+  warn ex.backtrace[0..5].join("\n")
   1
 end
 exit excode
