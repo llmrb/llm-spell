@@ -2,7 +2,7 @@
 
 llm-spell is both a library and command-line utility that can correct
 spelling mistakes with the help of a Large Language Model (LLM). Compared
-to traditional spell checkers like `aspell` and `hunspell`, llm-spell
+to traditional spell checkers like `aspell` and `hunspell` &ndash; llm-spell
 often produces fewer false positives and more accurate suggestions.
 
 ## Features
@@ -21,10 +21,19 @@ often produces fewer false positives and more accurate suggestions.
 require "llm"
 require "llm/spell"
 
+##
+# Text
 llm  = LLM.openai(key: ENV["OPENAI_SECRET"])
 text = LLM::Spell::Text.new("Ths is a smple txt with sme speling erors.", llm)
 print "mistakes: ", text.mistakes, "\n"
 print "corrections: ", text.corrections, "\n"
+
+##
+# PDF
+llm  = LLM.openai(key: ENV["OPENAI_SECRET"])
+file = LLM::Spell::File.new(File.open("typos.pdf", "rb"), llm)
+print "mistakes: ", file.mistakes, "\n"
+print "corrections: ", file.corrections, "\n"
 ```
 
 ## Demo
