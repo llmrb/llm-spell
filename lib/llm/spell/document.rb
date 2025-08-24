@@ -15,8 +15,8 @@ class LLM::Spell
       @bot = LLM::Bot.new(llm, schema:)
     end
 
-    def mistakes = response["mistakes"]
-    def corrections = response["corrections"]
+    def mistakes = response["mistakes"].uniq
+    def corrections = response["corrections"].uniq
 
     private
 

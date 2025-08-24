@@ -17,6 +17,7 @@ class LLM::Spell
         document.mistakes.each.with_index do |mistake, i|
           correction = document.corrections[i]
           print "#{mistake} => #{correction}", "\n"
+          print "Replace? (y/N): "
           res = $stdin.gets
           @text.gsub!(mistake, correction) if res&.strip&.downcase == "y"
           print "\n"
