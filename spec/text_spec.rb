@@ -3,7 +3,7 @@
 require_relative "setup"
 
 RSpec.describe LLM::Spell::Text do
-  context "with OpenAI", vcr: {cassette_name: "openai_spell_check"} do
+  context "with OpenAI", vcr: {cassette_name: "text/openai/spell_check"} do
     let(:llm) { LLM.openai(key: ENV["OPENAI_SECRET"]) }
     let(:text) { described_class.new("Ths is a smple txt with sme erors.", llm) }
 
