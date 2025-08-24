@@ -19,7 +19,7 @@ class LLM::Spell
       @bot = LLM::Bot.new(llm, schema:)
     end
 
-    def to_s = text
-    def to_str = text
+    def to_s = input
+    def to_str = input
   end
 end

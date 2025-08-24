@@ -5,7 +5,7 @@ require "llm"
 class LLM::Spell
   require_relative "spell/version"
   require_relative "spell/engine"
-  require_relative "spell/file"
+  require_relative "spell/document"
   require_relative "spell/text"
   require_relative "spell/cli"
 

@@ -31,7 +31,7 @@ print "corrections: ", text.corrections, "\n"
 ##
 # PDF
 llm  = LLM.openai(key: ENV["OPENAI_SECRET"])
-file = LLM::Spell::File.new(File.open("typos.pdf", "rb"), llm)
+file = LLM::Spell::Document.new("typos.pdf", llm)
 print "mistakes: ", file.mistakes, "\n"
 print "corrections: ", file.corrections, "\n"
 ```

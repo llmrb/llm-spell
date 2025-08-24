@@ -2,10 +2,10 @@
 
 class LLM::Spell
   ##
-  # The {LLM::Spell::File LLM::Spell::File} class can analyze a given
+  # The {LLM::Spell::Document LLM::Spell::Document} class can analyze a given
   # text file or document, and return any spelling mistakes that were
   # found &ndash; along with suggested corrections.
-  class File
+  class Document
     include LLM::Spell::Engine
 
     ##
@@ -13,7 +13,7 @@ class LLM::Spell
     #  The file to be analyzed
     # @param [LLM::Provider] provider
     #  An instance of LLM::Provider
-    # @return [LLM::Spell::File]
+    # @return [LLM::Spell::Document]
     def initialize(input, llm)
       @input = input
       @llm = llm

@@ -26,7 +26,13 @@ class LLM::Spell
     attr_reader :input, :llm, :bot
 
     def prompt
-      "Your task is to find spelling mistakes in the user's input and provide corrections."
+      <<~PROMPT
+        Your task is to find all spelling mistakes in the user's input and provide corrections.
+        Return a JSON object with two arrays:
+        - "mistakes": a list of all detected spelling mistakes.
+        - "corrections": a list of corrections, where each correction is at the same index as its corresponding mistake in the "mistakes" array.
+        Make sure that each mistake and its correction appear at the same index in their respective arrays.
+      PROMPT
     end
 
     def schema
@@ -38,6 +44,7 @@ class LLM::Spell
 
     def response
       @response ||= begin
+        input = (LLM::Spell::Document === self) ? File.open(@input, "rb") : @input
         bot.chat prompt, role: :user
         bot.chat input, role: :user
         bot.messages.find(&:assistant?).content!
