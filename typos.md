@@ -1,1 +1,1 @@
-This file has a lot of typos that need to be fixed
+This fil has lotz of typo'z tha ned to b fixt
