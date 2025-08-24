@@ -16,13 +16,24 @@ class LLM::Spell
   # The superclass of all LLM::Spell errors
   Error = Class.new(RuntimeError)
 
+  ##
+  # @param [Hash] options
+  # @return [LLM::Spell]
   def initialize(options)
     @options = options
     @text = Text.new(File.read(@options[:file]), llm)
   end
 
+  ##
+  # Run in interactive mode
+  # @return [void]
   def interactive
-    File.write @options[:file], CLI.new(@text).start
+    extname = File.extname(@options[:file])
+    if LLM::Mime[extname].start_with?("text/")
+      File.write @options[:file], CLI.new(@text).start
+    else
+      raise Error, "Only text files are supported for interactive mode"
+    end
   end
 
   private
