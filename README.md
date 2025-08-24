@@ -70,7 +70,7 @@ llamacpp:
 Usage: llm-spell [OPTIONS]
     -p, --provider NAME              Required. Options: gemini, openai, xai, ollama or llamacpp.
     -f, --file FILE                  Required. The file to check.
-    -k, --key [KEY]                  Optional. Required by gemini, openai, and anthropic.
+    -k, --key [KEY]                  Optional. Required by gemini, openai, and xai.
     -v, --version                    Optional. Print the version and exit.
 ```
 
