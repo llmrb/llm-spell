@@ -2,6 +2,8 @@
 
 llm-spell is both a library and command-line utility that
 corrects spelling mistakes using a Large Language Model (LLM).
+It is powered by [llm.rb](https://github.com/llmrb/llm).
+
 While often slower than traditional spell checkers like `aspell`
 and `hunspell`, `llm-spell` provides significantly more accurate
 suggestions with far fewer false positives &ndash; eliminating
