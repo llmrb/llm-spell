@@ -28,7 +28,7 @@ class LLM::Spell
     private
 
     def say(*messages)
-      print "llm-shell: ", *messages, "\n"
+      print "llm-spell: ", *messages, "\n"
     end
   end
 end

@@ -3,7 +3,7 @@
 [0.934516, "o", "bundl"]
 [0.934626, "o", "e exec llm-spell -p gemini -f typos.md"]
 [1.655421, "o", "\r\r\n"]
-[2.045086, "o", "llm-shell: please wait\r\n"]
+[2.045086, "o", "llm-spell: please wait\r\n"]
 [4.238238, "o", "fil => file\r\n"]
 [4.238447, "o", "\u001b[?2004h"]
 [4.239527, "o", "\u001b[1G▽"]
