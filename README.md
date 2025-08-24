@@ -43,7 +43,7 @@ print "corrections: ", file.corrections, "\n"
 
 ## CLI
 
-### Configuration
+#### Configuration
 
 The command line interface can be configured through the configuration file
 located at `$XDG_CONFIG_HOME/llm-spell.yml` or `~/.config/llm-spell.yml`. It
@@ -62,6 +62,16 @@ ollama:
   host: localhost
 llamacpp:
   host: localhost
+```
+
+#### Usage
+
+```sh
+Usage: llm-spell [OPTIONS]
+    -p, --provider NAME              Required. Options: gemini, openai, xai, ollama or llamacpp.
+    -f, --file FILE                  Required. The file to check.
+    -k, --key [KEY]                  Optional. Required by gemini, openai, and anthropic.
+    -v, --version                    Optional. Print the version and exit.
 ```
 
 ## Demo
