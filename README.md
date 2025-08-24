@@ -12,7 +12,7 @@ often produces fewer false positives and more accurate suggestions.
 - 🌐 **Broad provider support** – use OpenAI, Gemini, or xAI (Grok) out of the box
 - 💻 **Offline ready** – run locally with Ollama and LlamaCpp, no cloud required
 - 🔒 **Privacy** – keep sensitive text local with offline models
-- 🛠️ **Easy to use** – simple command-line interface for quick checks
+- 🛠️ **Easy to use** – provides an easy to use library and command-line utility
 
 ## Library
 
