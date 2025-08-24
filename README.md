@@ -4,11 +4,25 @@ llm-spell is both a library and command-line utility that
 corrects spelling mistakes using a Large Language Model (LLM).
 It is powered by [llm.rb](https://github.com/llmrb/llm).
 
-While often slower than traditional spell checkers like `aspell`
-and `hunspell`, `llm-spell` provides significantly more accurate
-suggestions with far fewer false positives &ndash; eliminating
-the need to manually ignore irrelevant corrections, and that
-usually makes it worth the wait.
+## Motivation
+
+This project was born while I was working on the documentation
+for a friend's open source project. After realizing how much
+manual effort was involved with traditional spell checkers I
+decided to see if I could leverage LLMs to make the process
+easier and also faster.
+
+Compared to traditional spell checkers like `aspell` and `hunspell`,
+`llm-spell` provides significantly more accurate suggestions with
+far fewer false positives &ndash; eliminating the need to manually
+ignore irrelevant corrections, and that often reduces the overall
+time spent on correcting spelling mistakes.
+
+I would call the experiment a success but I also realize this
+approach is not for everyone, or every situation. For example,
+my friend preferred to not use AI for this and instead we opted
+to stick with `hunspell` &ndash; even though it meant more
+manual work.
 
 ## Features
 
