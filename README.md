@@ -78,7 +78,7 @@ Usage: llm-spell [OPTIONS]
 
 <details>
   <summary>Start demo</summary>
-  <img src="demo.gif" alt="Demo of llm-spell in action" />
+  <img src="share/llm-spell/demo.gif" alt="Demo of llm-spell in action" />
 </details>
 
 ## License
