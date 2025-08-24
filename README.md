@@ -51,7 +51,7 @@ is also possible to provide the configuration at the command-line, but usually
 it's more convenient to use the configuration file:
 
 ```yaml
-# ~/.config/llm-shell.yml
+# ~/.config/llm-spell.yml
 openai:
   key: YOURKEY
 gemini:
