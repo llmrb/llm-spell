@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class LLM
+module LLM
 end unless defined?(LLM)
 
 class LLM::Spell
