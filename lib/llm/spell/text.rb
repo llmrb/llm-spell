@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 class LLM::Spell
+  ##
+  # The {LLM::Spell::Text LLM::Spell::Text} class can analyze a given
+  # piece of text and return any spelling mistakes it found &ndash; along
+  # with suggested corrections.
   class Text
-    attr_reader :text, :llm, :bot
-
     ##
     # @param [String] text
     #  The contents of the Text
@@ -15,10 +17,28 @@ class LLM::Spell
       @bot = LLM::Bot.new(llm, schema:)
     end
 
-    def mistakes = response["mistakes"].uniq
-    def corrections = response["corrections"].uniq
+    ##
+    # @return [Array<String>]
+    #  An array of unique spelling mistakes found in the text
+    def mistakes
+      response["mistakes"].uniq
+    end
+
+    ##
+    # @return [Array<String>]
+    #  An array of unique corrections corresponding to the mistakes
+    def corrections
+      response["corrections"].uniq
+    end
+
+    def to_s = text
+    def to_str = text
+    def inspect = "#<#{self.class}:0x#{object_id.to_s(16)} " \
+                  "mistakes=#{mistakes.size} corrections=#{corrections.size}>"
 
     private
+
+    attr_reader :text, :llm, :bot
 
     def prompt
       "Your task is to find spelling mistakes in the user's input and provide corrections."

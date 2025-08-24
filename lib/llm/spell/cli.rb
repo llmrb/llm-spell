@@ -18,7 +18,7 @@ class LLM::Spell
           print "#{mistake} => #{correction}", "\n"
           print "Replace? (y/N): "
           res = $stdin.gets
-          @text.text.gsub!(mistake, correction) if res&.strip&.downcase == "y"
+          @text.to_s.gsub!(mistake, correction) if res&.strip&.downcase == "y"
           print "\n"
         end
       end
