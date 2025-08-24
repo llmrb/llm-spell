@@ -4,8 +4,9 @@ llm-spell is both a library and command-line utility that
 corrects spelling mistakes using a Large Language Model (LLM).
 While often slower than traditional spell checkers like `aspell`
 and `hunspell`, `llm-spell` provides significantly more accurate
-suggestions with far fewer false positives, eliminating the need
-to manually review and ignore irrelevant corrections.
+suggestions with far fewer false positives &ndash; eliminating
+the need to manually ignore irrelevant corrections, and that
+usually makes it worth the wait.
 
 ## Features
 
