@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "llm"
-require "readline"
 
 class LLM::Spell
   require_relative "spell/version"
