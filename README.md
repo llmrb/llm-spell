@@ -41,6 +41,29 @@ print "mistakes: ", file.mistakes, "\n"
 print "corrections: ", file.corrections, "\n"
 ```
 
+## CLI
+
+### Configuration
+
+The command line interface can be configured through the configuration file
+located at `$XDG_CONFIG_HOME/llm-spell.yml` or `~/.config/llm-spell.yml`. It
+is also possible to provide the configuration at the command-line, but usually
+it's more convenient to use the configuration file:
+
+```yaml
+# ~/.config/llm-shell.yml
+openai:
+  key: YOURKEY
+gemini:
+  key: YOURKEY
+xai:
+  key: YOURKEY
+ollama:
+  host: localhost
+llamacpp:
+  host: localhost
+```
+
 ## Demo
 
 <details>
