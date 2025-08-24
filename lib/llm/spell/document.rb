@@ -2,9 +2,17 @@
 
 class LLM::Spell
   class Document
-    def initialize(text, options)
+    attr_reader :text, :llm, :bot
+
+    ##
+    # @param [String] text
+    #  The contents of the document
+    # @param [LLM::Provider] provider
+    #  An instance of LLM::Provider
+    def initialize(text:, llm:)
       @text = text
-      @options = options
+      @llm = llm
+      @bot = LLM::Bot.new(llm, schema:)
     end
 
     def mistakes = response["mistakes"]
@@ -26,14 +34,9 @@ class LLM::Spell
     def response
       @response ||= begin
         bot.chat prompt, role: :user
-        bot.chat @text, role: :user
+        bot.chat text, role: :user
         bot.messages.find(&:assistant?).content!
       end
     end
-
-    def llm = @llm ||= LLM.method(provider).call(key:)
-    def bot = @bot ||= LLM::Bot.new(llm, schema:)
-    def key = @options[:key] || ENV["LLM_SPELL_KEY"]
-    def provider = @options[:provider]
   end
 end

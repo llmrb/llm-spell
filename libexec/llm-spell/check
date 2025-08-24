@@ -13,7 +13,7 @@ def main(argv)
       warn option_parser.help
       throw(:exit, 1)
     else
-      LLM::Spell.new(options).start
+      LLM::Spell.new(options).interactive
     end
   end
 end
