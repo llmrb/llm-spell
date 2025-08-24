@@ -16,7 +16,6 @@ class LLM::Spell
 
   def interactive
     File.write @options[:file], CLI.new(@document).start
-    print "File updated.", "\n"
   end
 
   private

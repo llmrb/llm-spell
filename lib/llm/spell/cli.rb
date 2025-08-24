@@ -10,8 +10,9 @@ class LLM::Spell
     end
 
     def start
+      say "please wait"
       if document.mistakes.empty?
-        print "No spelling mistakes found.", "\n"
+        say "no mistakes found"
       else
         document.mistakes.each.with_index do |mistake, i|
           correction = document.corrections[i]
@@ -22,6 +23,12 @@ class LLM::Spell
         end
       end
       @text
+    end
+
+    private
+
+    def say(*messages)
+      print "llm-shell: ", *messages, "\n"
     end
   end
 end
