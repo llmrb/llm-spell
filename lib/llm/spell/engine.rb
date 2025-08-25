@@ -32,6 +32,7 @@ class LLM::Spell
         - "mistakes": a list of all detected spelling mistakes.
         - "corrections": a list of corrections, where each correction is at the same index as its corresponding mistake in the "mistakes" array.
         Make sure that each mistake and its correction appear at the same index in their respective arrays.
+        If there are no mistakes, both "mistakes" and "corrections" should be empty arrays.
       PROMPT
     end
 
