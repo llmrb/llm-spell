@@ -28,11 +28,11 @@ class LLM::Spell
   # Run in interactive mode
   # @return [void]
   def interactive
-    extname = File.extname(@options[:file])
-    if LLM::Mime[extname].start_with?("text/")
-      File.write @options[:file], CLI.new(@text).start
+    if mime_types.include?(LLM::Mime[file])
+      File.write file, CLI.new(@text).start
     else
-      raise Error, "Only text files are supported for interactive mode"
+      raise Error, "In interactive mode, the following mime types " \
+                   "are supported: #{mime_types.join(', ')}"
     end
   end
 
@@ -53,4 +53,6 @@ class LLM::Spell
   def config_dir = ENV["XDG_CONFIG_HOME"] || File.join(Dir.home, ".config")
   def config_file = File.join(config_dir, "llm-spell.yml")
   def config = @config ||= YAML.load_file(config_file)
+  def file = @options[:file]
+  def mime_types = ["text/plain", "text/markdown"]
 end
