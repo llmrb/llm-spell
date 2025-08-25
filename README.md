@@ -40,9 +40,9 @@ print "corrections: ", file.corrections, "\n"
 #### Configuration
 
 The command line interface can be configured through the configuration file
-located at `$XDG_CONFIG_HOME/llm-spell.yml` or `~/.config/llm-spell.yml`. It
-is also possible to provide the configuration at the command-line, but usually
-it's more convenient to use the configuration file:
+located at `$XDG_CONFIG_HOME/llm-spell.yml` or `~/.config/llm-spell.yml`. This
+step is required to use llm-spell from the command line but it is not required
+when using llm-shell as a library:
 
 ```yaml
 # ~/.config/llm-spell.yml
@@ -54,6 +54,7 @@ xai:
   key: YOURKEY
 ollama:
   host: localhost
+  model: gpt-oss
 llamacpp:
   host: localhost
 ```
@@ -64,7 +65,6 @@ llamacpp:
 Usage: llm-spell [OPTIONS]
     -p, --provider NAME              Required. Options: gemini, openai, xai, ollama or llamacpp.
     -f, --file FILE                  Required. The file to check.
-    -k, --key [KEY]                  Optional. Required by gemini, openai, and xai.
     -v, --version                    Optional. Print the version and exit.
 ```
 

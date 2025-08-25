@@ -23,7 +23,6 @@ def option_parser
     o.banner = "Usage: llm-spell [OPTIONS]"
     o.on("-p PROVIDER", "--provider NAME", "Required. Options: gemini, openai, xai, ollama or llamacpp.", String)
     o.on("-f FILE", "--file FILE", "Required. The file to check.", String)
-    o.on("-k [KEY]", "--key [KEY]", "Optional. Required by gemini, openai, and xai.", String)
     o.on("-v", "--version", "Optional. Print the version and exit.")
   end
 end

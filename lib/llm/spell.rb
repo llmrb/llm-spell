@@ -39,14 +39,12 @@ class LLM::Spell
   private
 
   def provider_options
-    if @options[:key]
-      {key: @options[:key]}
-    elsif File.readable?(config_file)
+    if File.readable?(config_file)
       config[provider.to_s]
         .transform_keys(&:to_sym)
         .slice(:key, :host, :port)
     else
-      raise Error, "No API key available"
+      raise Error, "The configuration file '#{config_file}' is not readable"
     end
   end
 
