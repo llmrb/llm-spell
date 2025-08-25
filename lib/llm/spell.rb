@@ -51,7 +51,13 @@ class LLM::Spell
   end
 
   def bot_options
-    @options.slice(:model)
+    if File.readable?(config_file)
+      config[provider.to_s]
+        .transform_keys(&:to_sym)
+        .slice(:model)
+    else
+      {}
+    end
   end
 
   def llm = @llm ||= LLM.method(provider).call(**provider_options)
