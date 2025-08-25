@@ -13,10 +13,13 @@ class LLM::Spell
     #  The contents of the Text
     # @param [LLM::Provider] provider
     #  An instance of LLM::Provider
-    def initialize(input, llm)
+    # @param [Hash] options
+    #  Additional options passed to LLM::Bot
+    def initialize(input, llm, options = {})
       @input = input
       @llm = llm
-      @bot = LLM::Bot.new(llm, schema:)
+      @options = options
+      @bot = LLM::Bot.new(llm, options.merge(schema:))
     end
 
     def to_s = input

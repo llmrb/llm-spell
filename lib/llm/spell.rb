@@ -21,7 +21,7 @@ class LLM::Spell
   # @return [LLM::Spell]
   def initialize(options)
     @options = options
-    @text = Text.new(File.read(@options[:file]), llm)
+    @text = Text.new(File.read(@options[:file]), llm, bot_options)
   end
 
   ##
@@ -38,17 +38,23 @@ class LLM::Spell
 
   private
 
-  def options
+  def provider_options
     if @options[:key]
       {key: @options[:key]}
     elsif File.readable?(config_file)
-      config[provider.to_s].transform_keys(&:to_sym)
+      config[provider.to_s]
+        .transform_keys(&:to_sym)
+        .slice(:key, :host, :port)
     else
       raise Error, "No API key available"
     end
   end
 
-  def llm = @llm ||= LLM.method(provider).call(**options)
+  def bot_options
+    @options.slice(:model)
+  end
+
+  def llm = @llm ||= LLM.method(provider).call(**provider_options)
   def provider = @options[:provider]
   def config_dir = ENV["XDG_CONFIG_HOME"] || File.join(Dir.home, ".config")
   def config_file = File.join(config_dir, "llm-spell.yml")

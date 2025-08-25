@@ -13,11 +13,13 @@ class LLM::Spell
     #  The file to be analyzed
     # @param [LLM::Provider] provider
     #  An instance of LLM::Provider
+    # @param [Hash] options
+    #  Additional options passed to LLM::Bot
     # @return [LLM::Spell::Document]
-    def initialize(input, llm)
+    def initialize(input, llm, options = {})
       @input = input
       @llm = llm
-      @bot = LLM::Bot.new(llm, schema:)
+      @bot = LLM::Bot.new(llm, options.merge(schema:))
     end
   end
 end
